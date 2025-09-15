@@ -5,12 +5,15 @@
     >
       <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <router-link
+          to="/profile/profile"
+          class="navbar-brand d-flex align-items-center"
+        >
           <img src="/profile.jpg" alt="Logo" height="50" class="me-2" />
           <div class="d-flex flex-column lh-1">
-            <strong>Portofolio</strong>
+            <strong>Profile</strong>
           </div>
-        </a>
+        </router-link>
 
         <!-- Menu -->
         <!-- <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,7 +40,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1050; 
+  z-index: 1050;
 }
 .nav-link {
   position: relative;
