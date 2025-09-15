@@ -10,17 +10,17 @@ const routes = [
   {
     path: "/projek/simpeg",
     name: "Simpeg",
-    component: () => import("../components/projeck/simpeg.vue"),
+    component: () => import("../components/projeck/Simpeg.vue"),
   },
   {
     path: "/projek/sicantik",
     name: "Sicantik",
-    component: () => import("../components/projeck/sicantik.vue"),
+    component: () => import("../components/projeck/Sicantik.vue"),
   },
   {
     path: "/projek/siabang",
     name: "Siabang",
-    component: () => import("../components/projeck/siabang.vue"),
+    component: () => import("../components/projeck/Siabang.vue"),
   },
 ];
 
