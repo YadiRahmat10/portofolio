@@ -1,7 +1,6 @@
 <template>
   <div class="bg-light text-dark">
-    <div class="container py-5">
-      <!-- Profile -->
+    <div class="container mt-5 py-5">
       <div class="row align-items-center mb-5">
         <div class="col-md-4 text-center">
           <img
@@ -17,7 +16,6 @@
         </div>
       </div>
 
-      <!-- Projects -->
       <div class="row mb-5">
         <div
           v-for="(project, index) in paginatedProjects"
@@ -79,7 +77,7 @@ import { ref, computed } from "vue";
 const name = ref(" - ");
 const tagline = ref("Fullstack Developer");
 const about = ref(
-  "A Software Developer with 2 year of experience building and maintaining Javascript (Vuejs Framework , PHP Laravel) web-based application for the Bogor district government. Proficient in solving problems and solving them complex technical problems. Also experienced with JavaScript, TypeScript, PHP, ReactJS, Laravel. me continuously looking for opportunities to expand my skills and contribute to innovative web development projects"
+  "A Software Developer with 2 year of experience building and maintaining Javascript (Vuejs Framework , PHP Laravel) web-based application for the Bogordistrict government. Proficient in solving problems and solving them complex technical problems. Also experienced with JavaScript, TypeScript, PHP, ReactJS, Laravel. me continuously looking for opportunities to expand my skills and contribute to innovative web development projects"
 );
 
 const projects = ref([
