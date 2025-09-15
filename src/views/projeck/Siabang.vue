@@ -31,7 +31,7 @@
               <tr>
                 <td class="fw-bold">Project URL</td>
                 <td>
-                  <a href="https://sicantik.bogorkab.go.id" target="_blank"
+                  <a href="https://siabangtampan.bogorkab.go.id" target="_blank"
                     ><button class="btn btn-warning btn-sm rounded-3">
                       Link
                     </button></a

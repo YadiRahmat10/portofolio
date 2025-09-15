@@ -22,6 +22,11 @@ const routes = [
     name: "Siabang",
     component: () => import("../views/projeck/Siabang.vue"),
   },
+  {
+    path: "/profile/profile",
+    name: "Profile",
+    component: () => import("../views/profile/Profile.vue"),
+  },
 ];
 
 const router = createRouter({
