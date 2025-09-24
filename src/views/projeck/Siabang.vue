@@ -61,7 +61,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const goBack = () => {
-  router.push({ name: "Home" });
+  router.push({ path: "/projek/portofolio" });
 };
 </script>
 

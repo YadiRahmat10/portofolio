@@ -20,7 +20,7 @@
 import { ref } from "vue";
 
 const socials = ref([
-    { icon: "bi bi-whatsapp", url: "#" },
+  { icon: "bi bi-whatsapp", url: "https://wa.me//6289621284627" },
   { icon: "bi bi-linkedin", url: "https://www.linkedin.com/in/yadi-rahmat/" },
   { icon: "bi bi-github", url: "https://github.com/YadiRahmat10" },
 ]);
@@ -35,7 +35,7 @@ footer {
 }
 
 a:hover i {
-  color: #198754; 
+  color: #198754;
   transition: 0.3s;
 }
 </style>

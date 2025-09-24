@@ -27,6 +27,11 @@ const routes = [
     name: "Profile",
     component: () => import("../views/profile/Profile.vue"),
   },
+  {
+    path: "/projek/portofolio",
+    name: "Index",
+    component: () => import("../views/projeck/Index.vue"),
+  },
 ];
 
 const router = createRouter({
