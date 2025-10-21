@@ -30,7 +30,12 @@ const routes = [
   {
     path: "/projek/portofolio",
     name: "Index",
-    component: () => import("../views/projeck/Index.vue"),
+    component: () => import("../views/projeck/index.vue"),
+  },
+  {
+    path: "/resume/resume",
+    name: "Resume",
+    component: () => import("../views/resume/Resume.vue"),
   },
 ];
 

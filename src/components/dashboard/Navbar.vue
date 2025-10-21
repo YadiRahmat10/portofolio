@@ -12,9 +12,9 @@
             height="45"
             class="me-2 rounded-circle"
           />
-          <div class="d-flex flex-column lh-1">
+          <!-- <div class="d-flex flex-column lh-1">
             <strong>Profile</strong>
-          </div>
+          </div> -->
         </router-link>
 
         <!-- Toggle mobile -->
@@ -50,7 +50,7 @@
               >
             </li>
             <li class="nav-item">
-              <router-link to="/resume" class="nav-link" active-class="active"
+              <router-link to="/resume/resume" class="nav-link" active-class="active"
                 >Resume</router-link
               >
             </li>
@@ -81,19 +81,19 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <router-link to="/option1" class="dropdown-item"
-                    >Option 1</router-link
+                  <router-link to="/projek/portofolio" class="dropdown-item"
+                    >Work</router-link
                   >
                 </li>
                 <li>
                   <router-link to="/option2" class="dropdown-item"
-                    >Option 2</router-link
+                    >Training</router-link
                   >
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <router-link to="/option3" class="dropdown-item"
-                    >Option 3</router-link
+                  <router-link to="/resume/resume" class="dropdown-item"
+                    >Resume</router-link
                   >
                 </li>
               </ul>

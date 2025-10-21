@@ -5,54 +5,55 @@
       <hr />
       <div class="row">
         <!-- Kolom Kiri -->
-        <div class="col">
+        <div class="col-12 col-md-6">
           <div class="mb-3 text-center">
             <img src="/yadi.jpg" alt="Foto Yadi Rahmat" class="profile-img" />
           </div>
-          <div class="mb-2 d-flex">
-            <div class="fw-bold warna" style="width: 250px">Name</div>
-            <div>: Yadi Rahmat</div>
+
+          <div class="mb-2 row">
+            <div class="col-5 fw-bold warna">Name</div>
+            <div class="col-7">: Yadi Rahmat</div>
           </div>
-          <div class="mb-2 d-flex">
-            <div class="fw-bold warna" style="width: 250px">Study program</div>
-            <div>: S1 Teknik Informatika</div>
+          <div class="mb-2 row">
+            <div class="col-5 fw-bold warna">Study program</div>
+            <div class="col-7">: S1 Teknik Informatika</div>
           </div>
-          <div class="mb-2 d-flex">
-            <div class="fw-bold warna" style="width: 250px">Last education</div>
-            <div>: Universitas Komputer Indonesia</div>
+          <div class="mb-2 row">
+            <div class="col-5 fw-bold warna">Last education</div>
+            <div class="col-7">: Universitas Komputer Indonesia</div>
           </div>
         </div>
 
         <!-- Kolom Kanan -->
-        <div class="col">
-          <div class="mb-2 d-flex">
-            <div class="fw-bold warna" style="width: 220px">Experience</div>
-            <div>
-              <a>: PT.Elima Firman Teknologi (2024 - Now)</a><br />
-              <a>: PT.Maju Gemilang Indotech</a><br />
-              <a>: PDAM Tirta Intan Garut (Sep 2014 - Nov 2014)</a><br />
+        <div class="col-12 col-md-6">
+          <div class="mb-2 row">
+            <div class="col-5 fw-bold warna">Experience</div>
+            <div class="col-7">
+              <div>: PT.Elima Firman Teknologi (2024 - Now)</div>
+              <div>: PT.Maju Gemilang Indotech</div>
+              <div>: PDAM Tirta Intan Garut (Sep 2014 - Nov 2014)</div>
             </div>
           </div>
-          <div class="mb-2 d-flex">
-            <div class="fw-bold warna" style="width: 220px">Skill</div>
-            <div>
-              <a>: JavaScript</a><br />
-              <a>: PHP</a><br />
-              <a>: Laravel</a><br />
-              <a>: Vue</a><br />
-              <a>: Angular</a><br />
-              <a>: React</a>
+
+          <div class="mb-2 row">
+            <div class="col-5 fw-bold warna">Skill</div>
+            <div class="col-7">
+              <div>: JavaScript</div>
+              <div>: PHP</div>
+              <div>: Laravel</div>
+              <div>: Vue</div>
+              <div>: Angular</div>
+              <div>: React</div>
             </div>
           </div>
-          <div class="mb-2 d-flex">
-            <div class="fw-bold warna" style="width: 220px">
-              Educational background
-            </div>
-            <div>
-              <a>: Universitas Komputer Indonesia</a><br />
-              <a>: SMKN 1 Garut</a><br />
-              <a>: SMP muhammadiyah 1 Kadungora</a><br />
-              <a>: SDN 6 Karangmulya</a><br />
+
+          <div class="mb-2 row">
+            <div class="col-5 fw-bold warna">Educational background</div>
+            <div class="col-7">
+              <div>: Universitas Komputer Indonesia</div>
+              <div>: SMKN 1 Garut</div>
+              <div>: SMP Muhammadiyah 1 Kadungora</div>
+              <div>: SDN 6 Karangmulya</div>
             </div>
           </div>
         </div>
@@ -79,14 +80,14 @@ const goBack = () => {
 
 <style scoped>
 .profile-img {
-  width: 150px; /* ukuran lebih kecil */
+  width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 50%; /* membuat bulat */
+  border-radius: 50%;
   border: 3px solid #198754;
 }
 
 .warna {
-  color: #198754;
+  color: #000000;
 }
 </style>

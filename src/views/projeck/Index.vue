@@ -174,4 +174,10 @@ const nextPage = () => {
     height: 300px;
   }
 }
+
+.custom-card {
+  background-color: #1b528a;
+  border: none;
+  color: #bb77f7;
+}
 </style>

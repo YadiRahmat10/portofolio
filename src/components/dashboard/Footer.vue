@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-center pt-4 bg-light mt-5">
+  <footer class="text-center pt-4 mt-5">
     <p>Contact me:</p>
     <div>
       <a

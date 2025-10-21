@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-light text-dark" style="min-height: 550px;">
+  <div style="min-height: 550px;">
     <div class="container mt-5 py-5">
       <div class="row align-items-center mb-5">
         <div class="col-md-4 text-center">
