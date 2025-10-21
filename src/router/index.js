@@ -30,7 +30,7 @@ const routes = [
   {
     path: "/projek/portofolio",
     name: "Index",
-    component: () => import("../views/projeck/index.vue"),
+    component: () => import("../views/projeck/Index.vue"),
   },
   {
     path: "/resume/resume",
