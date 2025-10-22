@@ -10,7 +10,7 @@
           />
         </div>
         <div class="col-md-8">
-          <h1 class="display-4">hi {{ name }}</h1>
+          <h1 class="display-4">{{ name }}</h1>
           <p class="lead">{{ tagline }}</p>
           <p>{{ about }}</p>
         </div>
@@ -22,7 +22,7 @@
 <script setup>
 import { ref, computed } from "vue";
 
-const name = ref(" - ");
+const name = ref(" Yadi Rahmat");
 const tagline = ref("Fullstack Developer");
 const about = ref(
   "A Software Developer with 2 year of experience building and maintaining Javascript (Vuejs Framework , PHP Laravel) web-based application for the Bogordistrict government. Proficient in solving problems and solving them complex technical problems. Also experienced with JavaScript, TypeScript, PHP, ReactJS, Laravel. me continuously looking for opportunities to expand my skills and contribute to innovative web development projects"
