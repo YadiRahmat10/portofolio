@@ -40,7 +40,7 @@
             <router-link to="/service" class="nav-link" active-class="active">Services</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/projek/portofolio" class="nav-link" active-class="active">Portofolio</router-link>
+            <router-link to="/projek/portofolio" class="nav-link" active-class="active">Work</router-link>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -53,10 +53,10 @@
               Project
             </a>
             <ul class="dropdown-menu rounded-3 shadow-sm">
-              <li><router-link to="/projek/portofolio" class="dropdown-item">Work</router-link></li>
-              <li><router-link to="/option2" class="dropdown-item">Training</router-link></li>
+              <li><router-link to="/projek/portofolio" class="dropdown-item"><i class="bi bi-file-earmark-fill me-2"></i>Work</router-link></li>
+              <li><router-link to="/option2" class="dropdown-item"><i class="bi bi-file-earmark-code me-2"></i>Training</router-link></li>
               <li><hr class="dropdown-divider" /></li>
-              <li><router-link to="/resume/resume" class="dropdown-item">Resume</router-link></li>
+              <li><router-link to="/resume/resume" class="dropdown-item"><i class="bi bi-file-earmark-person-fill me-2"></i>Resume</router-link></li>
             </ul>
           </li>
           <li class="nav-item">

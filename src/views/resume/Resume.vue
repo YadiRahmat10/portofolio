@@ -2,7 +2,28 @@
   <div class="container mt-5 py-5">
     <div class="">
       <section id="resume" class="resume section">
-        <h5 class="fw-bold text-center"> Resume</h5>
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-center text-lg-start mb-3 mb-lg-0">
+            <h5 class="fw-bold">Resume</h5>
+          </div>
+
+          <div class="col-lg-6 text-center text-lg-end">
+            <a
+              href="https://drive.google.com/uc?export=download&id=1zfl3bucY1KNtx3xy-TJ4GVHL5smGV4d6"
+              target="_blank"
+              class="btn btn-sm btn-outline-primary px-4 py-2 rounded-pill shadow-sm me-3"
+            >
+              <i class="bi bi-download me-2"></i> CV
+            </a>
+            <a
+              href="https://drive.google.com/uc?export=download&id=1qo45BbXZFhp-XrNsW31LONJ2oNn7LCo5"
+              target="_blank"
+              class="btn btn-sm btn-outline-primary px-4 py-2 rounded-pill shadow-sm"
+            >
+              <i class="bi bi-download me-2"></i> Portofolio
+            </a>
+          </div>
+        </div>
         <hr />
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -38,7 +59,7 @@
                 </div>
               </div>
               <!-- Skills -->
-             <echart />
+              <echart />
             </div>
 
             <!-- Experience -->

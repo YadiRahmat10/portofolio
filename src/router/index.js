@@ -10,32 +10,32 @@ const routes = [
   {
     path: "/projek/simpeg",
     name: "Simpeg",
-    component: () => import("../views/projeck/Simpeg.vue"),
+    component: () => import("../views/projeck/work/Simpeg.vue"),
+  },
+  {
+    path: "/projek/portofolio",
+    name: "Index",
+    component: () => import("../views/projeck/work/Index.vue"),
   },
   {
     path: "/projek/sicantik",
     name: "Sicantik",
-    component: () => import("../views/projeck/Sicantik.vue"),
+    component: () => import("../views/projeck/work/Sicantik.vue"),
   },
   {
     path: "/projek/siabang",
     name: "Siabang",
-    component: () => import("../views/projeck/Siabang.vue"),
+    component: () => import("../views/projeck/work/Siabang.vue"),
   },
   {
     path: "/projek/sakip",
     name: "Sakip",
-    component: () => import("../views/projeck/Sakip.vue"),
+    component: () => import("../views/projeck/work/Sakip.vue"),
   },
   {
     path: "/profile/profile",
     name: "Profile",
     component: () => import("../views/profile/Profile.vue"),
-  },
-  {
-    path: "/projek/portofolio",
-    name: "Index",
-    component: () => import("../views/projeck/Index.vue"),
   },
   {
     path: "/resume/resume",
