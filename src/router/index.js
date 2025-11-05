@@ -23,6 +23,11 @@ const routes = [
     component: () => import("../views/projeck/Siabang.vue"),
   },
   {
+    path: "/projek/sakip",
+    name: "Sakip",
+    component: () => import("../views/projeck/Sakip.vue"),
+  },
+  {
     path: "/profile/profile",
     name: "Profile",
     component: () => import("../views/profile/Profile.vue"),

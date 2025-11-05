@@ -61,11 +61,11 @@
     </div>
 
     <!-- Tombol kembali -->
-    <div class="mt-4">
+    <!-- <div class="mt-4">
       <button class="btn btn-success btn-sm" @click="goBack">
         <i class="bi bi-arrow-left"></i> Kembali
       </button>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -73,9 +73,9 @@
 import { useRouter } from "vue-router";
 const router = useRouter();
 
-const goBack = () => {
-  router.push({ name: "Home" });
-};
+// const goBack = () => {
+//   router.push({ name: "Home" });
+// };
 </script>
 
 <style scoped>

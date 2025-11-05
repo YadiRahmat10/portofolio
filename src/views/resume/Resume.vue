@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-5 py-5">
-    <div class="card shadow-sm p-4 mb-4">
+    <div class="">
       <section id="resume" class="resume section">
-        <h5 class="fw-bold text-center">Resume</h5>
+        <h5 class="fw-bold text-center"> Resume</h5>
         <hr />
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -37,56 +37,8 @@
                   </article>
                 </div>
               </div>
-
               <!-- Skills -->
-              <div class="resume-item">
-                <h3 class="resume-title">Professional Skills</h3>
-                <div class="resume-content">
-                  <div class="skill-item">
-                    <h4>Frontend Development</h4>
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: 95%"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <h4>Backend Development</h4>
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: 85%"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <h4>UI/UX Design</h4>
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: 90%"
-                      ></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-item">
-                    <h4>Project Management</h4>
-                    <div class="progress">
-                      <div
-                        class="progress-bar"
-                        role="progressbar"
-                        style="width: 80%"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             <echart />
             </div>
 
             <!-- Experience -->
@@ -139,6 +91,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
+import Echart from "../resume/Ichart.vue";
 
 const router = useRouter();
 </script>
@@ -198,7 +151,7 @@ const router = useRouter();
 
 .resume-content h5 {
   display: inline-block;
-  background: #3dc19b; /* badge hitam */
+  background: #8d8d9b; /* badge hitam */
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -262,7 +215,7 @@ const router = useRouter();
 }
 
 .progress-bar {
-  background-color: #3dc19b; /* progress bar hitam */
+  background-color: #8d8d9b; /* progress bar hitam */
   height: 8px;
   border-radius: 6px;
 }

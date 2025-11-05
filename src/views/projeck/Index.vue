@@ -1,55 +1,92 @@
 <template>
   <div class="container mt-5 py-5">
-    <div class="row mb-5">
+    <div
+      class="isotope-layout"
+      data-default-filter="*"
+      data-layout="masonry"
+      data-sort="original-order"
+    >
+      <!-- Portfolio Items -->
       <div
-        v-for="(project, index) in paginatedProjects"
-        :key="index"
-        class="col-md-4 mb-4"
+        class="row gy-4 isotope-container"
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
-        <div class="card h-100 shadow anim">
-          <img :src="project.image" class="card-img-top" :alt="project.title" />
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ project.title }}</h5>
-            <p class="card-text">{{ project.desc }}</p>
-            <router-link
-              class="btn btn-success btn-sm w-100 mt-auto"
-              :to="project.route"
+        <div
+          class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
+          v-for="(project, index) in paginatedProjects"
+          :key="index"
+        >
+          <div class="portfolio-content h-100 relative">
+            <img :src="project.image" class="img-fluid" :alt="project.title" />
+            <div
+              class="portfolio-info absolute inset-0 flex flex-col justify-center items-center text-white text-center"
             >
-              Detail
-            </router-link>
+              <h4>{{ project.title }}</h4>
+              <p>{{ project.desc }}</p>
+              <div class="d-flex justify-content-center gap-3 mt-2">
+                <!-- Tombol Zoom -->
+                <a
+                  :href="project.image"
+                  class="glightbox preview-link"
+                  :data-gallery="`portfolio-gallery-${project.title}`"
+                  :title="project.title"
+                >
+                  <i class="bi bi-zoom-in"></i>
+                </a>
+                <!-- Tombol Link -->
+                <a
+                  :href="project.route"
+                  class="details-link"
+                  title="More Details"
+                >
+                  <i class="bi bi-link-45deg"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- End Portfolio Item -->
       </div>
-    </div>
 
-    <nav aria-label="Page navigation" class="d-flex justify-content-end">
-      <ul class="pagination custom-pagination">
-        <li class="page-item" :class="{ disabled: currentPage === 1 }">
-          <button class="page-link" @click="prevPage">&lt; Previous</button>
-        </li>
+      <!-- Pagination -->
+      <div class="custom-pagination mt-4">
+        <button
+          class="page-link"
+          :disabled="currentPage === 1"
+          @click="currentPage--"
+        >
+          <i class="bi bi-chevron-left"></i>
+        </button>
 
-        <li
+        <button
           v-for="page in totalPages"
           :key="page"
-          class="page-item"
-          :class="{ active: currentPage === page }"
+          class="page-link"
+          :class="{ active: page === currentPage }"
+          @click="currentPage = page"
         >
-          <button class="page-link" @click="goToPage(page)">
-            {{ page }}
-          </button>
-        </li>
+          {{ page }}
+        </button>
 
-        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-          <button class="page-link" @click="nextPage">Next &gt;</button>
-        </li>
-      </ul>
-    </nav>
+        <button
+          class="page-link"
+          :disabled="currentPage === totalPages"
+          @click="currentPage++"
+        >
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
+import GLightbox from "glightbox";
+import "glightbox/dist/css/glightbox.min.css";
 
+// Data proyek
 const projects = ref([
   {
     title: "SIMPEG",
@@ -68,45 +105,10 @@ const projects = ref([
     // desc: "Sistem Informasi Administrasi Pembangunan yang digunakan oleh Pemerintah Kota Bogor untuk memonitor dan mengevaluasi pelaksanaan kegiatan fisik dan keuangan.",
     image: "/siabang.jpg",
     route: "/projek/siabang",
-  },
-  {
-    title: "-",
-    desc: "-",
-    image: "/sicantik.jpg",
-    route: "#",
-  },
-  {
-    title: "-",
-    desc: "-",
-    image: "/sicantik.jpg",
-    route: "#",
-  },
-  {
-    title: "-",
-    desc: "-",
-    image: "/sicantik.jpg",
-    route: "#",
-  },
-  {
-    title: "-",
-    desc: "-",
-    image: "/sicantik.jpg",
-    route: "#",
-  },
-  {
-    title: "-",
-    desc: "-",
-    image: "/sicantik.jpg",
-    route: "#",
-  },
-  {
-    title: "-",
-    desc: "-",
-    image: "/sicantik.jpg",
-    route: "#",
-  },
+  }
 ]);
 
+// Pagination
 const currentPage = ref(1);
 const itemsPerPage = 6;
 
@@ -120,64 +122,87 @@ const paginatedProjects = computed(() => {
   return projects.value.slice(start, end);
 });
 
-const goToPage = (page) => {
-  currentPage.value = page;
-};
-
-const prevPage = () => {
-  if (currentPage.value > 1) currentPage.value--;
-};
-
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) currentPage.value++;
-};
+// Init GLightbox
+onMounted(() => {
+  GLightbox({
+    selector: ".glightbox",
+  });
+});
 </script>
 
 <style scoped>
+.portfolio-content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-content img {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio-info {
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.65);
+  transition: all 0.4s ease;
+  transform: translateY(20px);
+}
+
+.portfolio-content:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-content:hover .portfolio-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ikon */
+.portfolio-info i {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.portfolio-info i:hover {
+  color: #0dcaf0;
+  transform: scale(1.2);
+}
+
+/* Pagination */
 .custom-pagination {
   display: flex;
   gap: 8px;
+  justify-content: center;
 }
 
-.custom-pagination .page-link {
+.page-link {
   color: #0096a0;
   border: 1px solid #0096a0;
-  margin: 0 3px;
   border-radius: 8px;
   padding: 6px 14px;
+  transition: all 0.3s;
+  background-color: #fff;
 }
 
-.custom-pagination .page-item.active .page-link {
+.page-link.active,
+.page-link:hover {
   background-color: #0096a0;
+  color: #fff;
   border-color: #0096a0;
-  color: #fff;
 }
 
-.custom-pagination .page-item.disabled .page-link {
-  color: #aaa;
-  border-color: #ddd;
-  pointer-events: none;
-  background-color: #f8f9fa;
-}
-
-.custom-pagination .page-link:hover {
-  background-color: #0096a0;
-  color: #fff;
-}
-
-.card-img-top {
-  height: 180px;
-}
-
-@media (min-width: 768px) {
-  .card-img-top {
-    height: 300px;
+/* Responsif */
+@media (max-width: 768px) {
+  .portfolio-info h4 {
+    font-size: 1rem;
   }
-}
-
-.custom-card {
-  background-color: #1b528a;
-  border: none;
-  color: #bb77f7;
+  .portfolio-info i {
+    font-size: 1.4rem;
+  }
 }
 </style>
