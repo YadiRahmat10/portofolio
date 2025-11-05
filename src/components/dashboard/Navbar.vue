@@ -60,7 +60,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <router-link to="/contact" class="nav-link" active-class="active"><i class="bi bi-telephone-fill me-2"></i>Contact</router-link>
+            <router-link to="/contact/contact" class="nav-link" active-class="active"><i class="bi bi-telephone-fill me-2"></i>Contact</router-link>
           </li>
         </ul>
       </div>
