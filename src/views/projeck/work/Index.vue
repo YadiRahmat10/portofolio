@@ -96,16 +96,29 @@ const projects = ref([
   },
   {
     title: "SICANTIK",
-    // desc: "Sistem Informasi Catatan Kehadiran dan Kinerja.",
     image: "/sicantik.jpg",
     route: "/projek/sicantik",
   },
   {
     title: "SIABANG",
-    // desc: "Sistem Informasi Administrasi Pembangunan yang digunakan oleh Pemerintah Kota Bogor untuk memonitor dan mengevaluasi pelaksanaan kegiatan fisik dan keuangan.",
     image: "/siabang.jpg",
     route: "/projek/siabang",
-  }
+  },
+  {
+    title: "SAKIP",
+    image: "/sakip.png",
+    route: "/projek/sakip",
+  },
+  {
+    title: "SAMANTAP",
+    image: "/simantap.png",
+    route: "/projek/samantap",
+  },
+  {
+    title: "KMOB",
+    image: "/kmob.png",
+    route: "/projek/samantap",
+  },
 ]);
 
 // Pagination
@@ -134,22 +147,25 @@ onMounted(() => {
 .portfolio-content {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  height: 100%;
 }
 
 .portfolio-content img {
-  transition: transform 0.4s ease;
   width: 100%;
-  height: auto;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .portfolio-info {
   opacity: 0;
   background: rgba(0, 0, 0, 0.65);
   transition: all 0.4s ease;
-  transform: translateY(20px);
+  transform: translateY(25px);
+  padding: 20px;
 }
 
 .portfolio-content:hover img {
@@ -164,13 +180,12 @@ onMounted(() => {
 /* Ikon */
 .portfolio-info i {
   font-size: 1.8rem;
-  color: #fff;
-  transition: transform 0.3s, color 0.3s;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .portfolio-info i:hover {
-  color: #0dcaf0;
   transform: scale(1.2);
+  color: #0dcaf0;
 }
 
 /* Pagination */
@@ -196,13 +211,40 @@ onMounted(() => {
   border-color: #0096a0;
 }
 
-/* Responsif */
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
+  .portfolio-content img {
+    height: 180px;
+  }
+
+  .portfolio-info h4 {
+    font-size: 1.1rem;
+  }
+
+  .portfolio-info p {
+    font-size: .85rem;
+  }
+
+  .portfolio-info i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-content img {
+    height: 160px;
+  }
+
+  .portfolio-info {
+    padding: 15px;
+  }
+
   .portfolio-info h4 {
     font-size: 1rem;
   }
-  .portfolio-info i {
-    font-size: 1.4rem;
+
+  .portfolio-info p {
+    font-size: .8rem;
   }
 }
 </style>

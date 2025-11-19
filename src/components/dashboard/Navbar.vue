@@ -36,9 +36,9 @@
           <li class="nav-item">
             <router-link to="/resume/resume" class="nav-link" active-class="active">Resume</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/service" class="nav-link" active-class="active">Services</router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link to="/projek/portofolio" class="nav-link" active-class="active">Work</router-link>
           </li>
