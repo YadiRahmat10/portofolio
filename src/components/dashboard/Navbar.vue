@@ -28,19 +28,34 @@
       </button>
 
       <!-- Menu -->
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarNav"
+      >
         <ul class="navbar-nav align-items-center">
           <li class="nav-item">
-            <router-link to="/" class="nav-link" active-class="active">Beranda</router-link>
+            <router-link to="/" class="nav-link" active-class="active"
+              >Beranda</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link to="/resume/resume" class="nav-link" active-class="active">Resume</router-link>
+            <router-link
+              to="/resume/resume"
+              class="nav-link"
+              active-class="active"
+              >Resume</router-link
+            >
           </li>
           <!-- <li class="nav-item">
             <router-link to="/service" class="nav-link" active-class="active">Services</router-link>
           </li> -->
           <li class="nav-item">
-            <router-link to="/projek/portofolio" class="nav-link" active-class="active">Work</router-link>
+            <router-link
+              to="/projek/portofolio"
+              class="nav-link"
+              active-class="active"
+              >Work</router-link
+            >
           </li>
           <li class="nav-item dropdown">
             <a
@@ -53,14 +68,33 @@
               Project
             </a>
             <ul class="dropdown-menu rounded-3 shadow-sm">
-              <li><router-link to="/projek/portofolio" class="dropdown-item"><i class="bi bi-file-earmark-fill me-2"></i>Work</router-link></li>
-              <li><router-link to="/option2" class="dropdown-item"><i class="bi bi-file-earmark-code me-2"></i>Training</router-link></li>
+              <li>
+                <router-link to="/projek/portofolio" class="dropdown-item"
+                  ><i class="bi bi-file-earmark-fill me-2"></i>Work</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/option2" class="dropdown-item"
+                  ><i class="bi bi-file-earmark-code me-2"></i
+                  >Training</router-link
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><router-link to="/resume/resume" class="dropdown-item"><i class="bi bi-file-earmark-person-fill me-2"></i>Resume</router-link></li>
+              <li>
+                <router-link to="/resume/resume" class="dropdown-item"
+                  ><i class="bi bi-file-earmark-person-fill me-2"></i
+                  >Resume</router-link
+                >
+              </li>
             </ul>
           </li>
           <li class="nav-item">
-            <router-link to="/contact/contact" class="nav-link" active-class="active"><i class="bi bi-telephone-fill me-2"></i>Contact</router-link>
+            <router-link
+              to="/contact/contact"
+              class="nav-link"
+              active-class="active"
+              ><i class="bi bi-telephone-fill me-2"></i>Contact</router-link
+            >
           </li>
         </ul>
       </div>
@@ -79,26 +113,32 @@
 </template>
 
 <style scoped>
+/* ===================== */
+/* DESKTOP STYLE */
+/* ===================== */
 .custom-navbar {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
   max-width: 1300px;
-  background: linear-gradient(145deg, #c0c0c0, #e0e0e0); /* Warna silver */
+  background: linear-gradient(145deg, #c0c0c0, #e0e0e0);
   backdrop-filter: blur(10px);
   border: 1px solid #b0b0b0;
   box-shadow: 0 4px 10px rgba(150, 150, 150, 0.3);
   z-index: 1050;
+  border-radius: 50px;
+  transition: border-radius 0.25s ease;
 }
 
-/* Warna & efek link */
+/* ===================== */
+/* LINK STYLE */
+/* ===================== */
 .nav-link {
   font-weight: 500;
   color: #333 !important;
   margin: 0 10px;
   position: relative;
-  transition: color 0.3s ease;
 }
 
 .nav-link.active,
@@ -114,33 +154,42 @@
   bottom: -4px;
   width: 100%;
   height: 2px;
-  background-color: #8d8d9b; /* abu-abu elegan */
+  background-color: #8d8d9b;
   border-radius: 2px;
 }
 
-/* Search box */
-.search-box {
-  position: relative;
-}
+/* ===================== */
+/* MOBILE FIX */
+/* ===================== */
+@media (max-width: 991.98px) {
+  .custom-navbar {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    top: 0;
+    transform: none;
+  }
 
-.search-box input {
-  width: 150px;
-  transition: width 0.3s ease;
-}
+  /* Saat menu DIBUKA → rounded HILANG */
+  .navbar:has(.navbar-toggler[aria-expanded="true"]) {
+    border-radius: 0 !important;
+  }
 
-.search-box input:focus {
-  width: 200px;
-  outline: none;
-}
+  /* Collapse menu */
+  .navbar-collapse {
+    background: linear-gradient(145deg, #c0c0c0, #e0e0e0);
+    margin-top: 0;
+    padding: 12px 0;
+    border-radius: 0;
+  }
 
-.search-box i {
-  position: relative;
-  right: 25px;
-  cursor: pointer;
-}
+  .nav-link {
+    padding: 10px 16px;
+    margin: 0;
+  }
 
-/* Agar konten di bawah tidak tertutup navbar */
-body {
-  padding-top: 90px;
+  .nav-link::after {
+    display: none;
+  }
 }
 </style>
