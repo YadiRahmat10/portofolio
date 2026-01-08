@@ -11,7 +11,7 @@
           height="40"
           class="me-2 rounded-circle"
         />
-        <span class="fw-bold text-dark">PORTFOLIO</span>
+        <!-- <span class="fw-bold text-dark">PORTFOLIO</span> -->
       </router-link>
 
       <!-- Toggle mobile -->

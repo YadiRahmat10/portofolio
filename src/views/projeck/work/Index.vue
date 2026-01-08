@@ -1,127 +1,141 @@
 <template>
   <div class="container mt-5 py-5">
-    <div
-      class="isotope-layout"
-      data-default-filter="*"
-      data-layout="masonry"
-      data-sort="original-order"
-    >
-      <!-- Portfolio Items -->
+    <div class="row g-4">
       <div
-        class="row gy-4 isotope-container"
-        data-aos="fade-up"
-        data-aos-delay="200"
+        class="col-lg-4"
+        v-for="(project, index) in paginatedProjects"
+        :key="index"
       >
-        <div
-          class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
-          v-for="(project, index) in paginatedProjects"
-          :key="index"
-        >
-          <div class="portfolio-content h-100 relative">
-            <img :src="project.image" class="img-fluid" :alt="project.title" />
-            <div
-              class="portfolio-info absolute inset-0 flex flex-col justify-center items-center text-white text-center"
-            >
-              <h4>{{ project.title }}</h4>
-              <p>{{ project.desc }}</p>
-              <div class="d-flex justify-content-center gap-3 mt-2">
-                <!-- Tombol Zoom -->
-                <a
-                  :href="project.image"
-                  class="glightbox preview-link"
-                  :data-gallery="`portfolio-gallery-${project.title}`"
-                  :title="project.title"
-                >
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-                <!-- Tombol Link -->
-                <a
-                  :href="project.route"
-                  class="details-link"
-                  title="More Details"
-                >
-                  <i class="bi bi-link-45deg"></i>
-                </a>
-              </div>
+        <div class="portfolio-card">
+          <!-- Image -->
+          <div class="portfolio-image">
+            <img :src="project.image" :alt="project.title" />
+            <span v-if="project.badge" class="badge-top">
+              {{ project.badge }}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="portfolio-body">
+            <div class="meta">
+              <span class="category">{{ project.category }}</span>
+              <span class="year">{{ project.year }}</span>
             </div>
+
+            <h3 class="title">{{ project.title }}</h3>
+            <p class="desc">{{ project.desc }}</p>
+
+            <div class="tags">
+              <span v-for="(tag, i) in project.tech" :key="i">
+                {{ tag }}
+              </span>
+            </div>
+
+            <a :href="project.route" class="case-link">
+              View Case <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
-        <!-- End Portfolio Item -->
       </div>
+    </div>
 
-      <!-- Pagination -->
-      <div class="custom-pagination mt-4">
-        <button
-          class="page-link"
-          :disabled="currentPage === 1"
-          @click="currentPage--"
-        >
-          <i class="bi bi-chevron-left"></i>
-        </button>
+    <!-- Pagination -->
+    <div class="custom-pagination mt-5">
+      <button
+        class="page-link"
+        :disabled="currentPage === 1"
+        @click="currentPage--"
+      >
+        ‹
+      </button>
 
-        <button
-          v-for="page in totalPages"
-          :key="page"
-          class="page-link"
-          :class="{ active: page === currentPage }"
-          @click="currentPage = page"
-        >
-          {{ page }}
-        </button>
+      <button
+        v-for="page in totalPages"
+        :key="page"
+        class="page-link"
+        :class="{ active: page === currentPage }"
+        @click="currentPage = page"
+      >
+        {{ page }}
+      </button>
 
-        <button
-          class="page-link"
-          :disabled="currentPage === totalPages"
-          @click="currentPage++"
-        >
-          <i class="bi bi-chevron-right"></i>
-        </button>
-      </div>
+      <button
+        class="page-link"
+        :disabled="currentPage === totalPages"
+        @click="currentPage++"
+      >
+        ›
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
-import GLightbox from "glightbox";
-import "glightbox/dist/css/glightbox.min.css";
+import { ref, computed } from "vue";
 
-// Data proyek
 const projects = ref([
   {
-    title: "SIMPEG",
-    // desc: "Sistem Informasi Manajemen Kepegawaian.",
+    title: "SIMPEG Dashboard",
+    // desc: "Sistem Informasi Manajemen Kepegawaian yang digunakan oleh Pemerintah Kota Bogor (dan juga Kabupaten Bogor) sebagai platform digital untuk mengelola seluruh data dan administrasi Aparatur Sipil Negara (ASN) secara efisien, mencakup pengajuan cuti, absensi, pengelolaan kinerja, perubahan data pribadi/keluarga, kenaikan pangkat, dan layanan kepegawaian lainnya",
     image: "/simpeg.jpg",
     route: "/projek/simpeg",
+    category: "WEB DEVELOPMENT",
+    year: "-",
+    // badge: "FEATURED",
+    tech: ["Vue.Js", "JavaScript", "PHP", "MySQL"],
   },
   {
-    title: "SICANTIK",
+    title: "SICANTIK App",
+    // desc: "Sistem Informasi Catatan Kehadiran dan Kinerja untuk Pemerintah Kabupaten Bogor adalah Aplikasi berbasis web dan mobile (Android/iOS) untuk absensi, laporan harian (LKHP/SKP), pengajuan izin (cuti, dinas luar), dan manajemen kinerja pegawai secara real-time menggunakan GPS, yang bertujuan meningkatkan disiplin dan transparansi kinerja ASN.",
     image: "/sicantik.jpg",
     route: "/projek/sicantik",
+    category: "WEB DEVELOPMENT",
+    year: "-",
+    tech: ["PHP", "Laravel", "MySQL", "Bootstrap"],
   },
   {
-    title: "SIABANG",
+    title: "SIABANG TAMPAN",
+    // desc: "SIABANG TAMPAN (Sistem Informasi Pengembangan Kompetensi ASN Masa Depan) adalah platform digital untuk pengembangan kompetensi Aparatur Sipil Negara (ASN) di Kabupaten Bogor, yang berfungsi sebagai Learning Management System (LMS) untuk memantau, mengelola, dan memfasilitasi pelatihan",
     image: "/siabang.jpg",
     route: "/projek/siabang",
+    category: "WEB DEVELOPMENT",
+    year: "-",
+    // badge: "AWARD WINNER",
+    tech: ["Vue.Js", "JavaScript", "PHP", "MySQL"],
   },
   {
     title: "SAKIP",
-    image: "/sakip.png",
+    // desc: "Brand identity modern untuk startup teknologi.",
+    image: "/sakip.jpg",
     route: "/projek/sakip",
+    category: "WEB DEVELOPMENT",
+    year: "-",
+    // badge: "AWARD WINNER",
+    tech: ["Vue.Js", "JavaScript", "PHP", "MySQL"],
   },
+
   {
-    title: "SAMANTAP",
-    image: "/simantap.png",
+    title: "SIMANTAP",
+    // desc: "Brand identity modern untuk startup teknologi.",
+    image: "/simantap.jpg",
     route: "/projek/samantap",
+    category: "WEB DEVELOPMENT",
+    year: "-",
+    // badge: "AWARD WINNER",
+    tech: ["Vue.Js", "JavaScript", "PHP", "MySQL"],
   },
   {
     title: "KMOB",
+    // desc: "Brand identity modern untuk startup teknologi.",
     image: "/kmob.png",
-    route: "/projek/samantap",
+    route: "/projek/kmob",
+    category: "WEB DEVELOPMENT",
+    year: "-",
+    // badge: "AWARD WINNER",
+    tech: ["Vue.Js", "JavaScript", "PHP", "MySQL"],
   },
 ]);
 
-// Pagination
 const currentPage = ref(1);
 const itemsPerPage = 6;
 
@@ -131,120 +145,134 @@ const totalPages = computed(() =>
 
 const paginatedProjects = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
-  return projects.value.slice(start, end);
-});
-
-// Init GLightbox
-onMounted(() => {
-  GLightbox({
-    selector: ".glightbox",
-  });
+  return projects.value.slice(start, start + itemsPerPage);
 });
 </script>
 
 <style scoped>
-.portfolio-content {
-  position: relative;
+.portfolio-card {
+  /* background: linear-gradient(180deg, #0f172a, #020617); */
+  background: linear-gradient(180deg, #2a2a2a, #1f1f1f);
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   height: 100%;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.35s ease;
 }
 
-.portfolio-content img {
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* Image */
+.portfolio-image {
+  position: relative;
+}
+
+.portfolio-image img {
   width: 100%;
-  height: 220px;
+  height: 240px;
   object-fit: cover;
-  transition: transform 0.4s ease;
 }
 
-.portfolio-info {
-  opacity: 0;
-  background: rgba(0, 0, 0, 0.65);
-  transition: all 0.4s ease;
-  transform: translateY(25px);
-  padding: 20px;
+/* Badge */
+.badge-top {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #0ea5e9;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
-.portfolio-content:hover img {
-  transform: scale(1.1);
+/* Body */
+.portfolio-body {
+  padding: 22px;
+  color: #e5e7eb;
 }
 
-.portfolio-content:hover .portfolio-info {
-  opacity: 1;
-  transform: translateY(0);
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  color: #38bdf8;
 }
 
-/* Ikon */
-.portfolio-info i {
-  font-size: 1.8rem;
-  transition: transform 0.3s ease, color 0.3s ease;
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.portfolio-info i:hover {
-  transform: scale(1.2);
-  color: #0dcaf0;
+.desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cbd5f5;
+  margin-bottom: 15px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tags span {
+  /* background: #020617;
+  border: 1px solid #1e293b; */
+  background: #2b2b2b;
+  border: 1px solid #3f3f3f;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  color: #38bdf8;
+}
+
+/* Link */
+.case-link {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.case-link:hover {
+  color: #38bdf8;
 }
 
 /* Pagination */
 .custom-pagination {
   display: flex;
-  gap: 8px;
   justify-content: center;
+  gap: 8px;
 }
 
 .page-link {
-  color: #0096a0;
-  border: 1px solid #0096a0;
-  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
   padding: 6px 14px;
-  transition: all 0.3s;
-  background-color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .page-link.active,
 .page-link:hover {
-  background-color: #0096a0;
-  color: #fff;
-  border-color: #0096a0;
-}
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 768px) {
-  .portfolio-content img {
-    height: 180px;
-  }
-
-  .portfolio-info h4 {
-    font-size: 1.1rem;
-  }
-
-  .portfolio-info p {
-    font-size: .85rem;
-  }
-
-  .portfolio-info i {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .portfolio-content img {
-    height: 160px;
-  }
-
-  .portfolio-info {
-    padding: 15px;
-  }
-
-  .portfolio-info h4 {
-    font-size: 1rem;
-  }
-
-  .portfolio-info p {
-    font-size: .8rem;
-  }
+  /* background: #38bdf8;
+  color: #020617; */
+  background: #38bdf8;
+  color: #1f2933;
 }
 </style>

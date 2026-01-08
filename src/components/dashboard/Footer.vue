@@ -1,19 +1,21 @@
 <template>
-  <footer class="text-center pt-4 mt-5">
-    <p>Contact me:</p>
-    <div>
-      <a
-        v-for="(social, index) in socials"
-        :key="index"
-        :href="social.url"
-        class="mx-2 text-dark"
-        target="_blank"
-      >
-        <i :class="social.icon" style="font-size: 1.5rem"></i>
-      </a>
-    </div>
-    <p class="mt-3">&copy; 2025 {{ name }}. All rights are protected.</p>
-  </footer>
+  <div class="container mt-5 py-5">
+    <footer class="text-center pt-4 mt-5">
+      <p>Contact me:</p>
+      <div>
+        <a
+          v-for="(social, index) in socials"
+          :key="index"
+          :href="social.url"
+          class="mx-2 text-dark"
+          target="_blank"
+        >
+          <i :class="social.icon" style="font-size: 1.5rem"></i>
+        </a>
+      </div>
+      <p class="mt-3">&copy; 2025 {{ name }}. All rights are protected.</p>
+    </footer>
+  </div>
 </template>
 
 <script setup>

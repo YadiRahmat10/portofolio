@@ -4,9 +4,9 @@
       <div class="col-md-6">
         <div class="card shadow-sm p-3 text-center">
           <img
-            src="/sicantik.jpg"
+            src="/db_sicantik.png"
             alt="Logo SICANTIK"
-            class="img-fluid animated-img"
+            class="img-fluid"
           />
         </div>
          <button class="btn btn-success btn-sm mt-3" @click="goBack">

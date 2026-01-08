@@ -59,7 +59,7 @@
                 </div>
               </div>
               <!-- Skills -->
-              <echart />
+              <!-- <echart /> -->
             </div>
 
             <!-- Experience -->
