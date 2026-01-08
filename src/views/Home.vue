@@ -1,33 +1,35 @@
 <template>
-  <div style="min-height: 550px">
-    <div class="container mt-2 py-5">
-      <div class="row align-items-center mb-5">
-        <div class="col-md-4 text-center">
-          <img
-            src="/logo.png"
-            class="rounded-circle img-fluid profile-img"
-            alt="Profile Photo"
-          />
-        </div>
-        <div class="col-md-8">
-          <h1 class="display-4">{{ name }}</h1>
-          <p class="lead">{{ tagline }}</p>
-          <p>{{ about }}</p>
+  <div class="container mt-3 py-3">
+    <div style="min-height: 550px">
+      <div class="container mt-2 py-5">
+        <div class="row align-items-center mb-5">
+          <div class="col-md-4 text-center">
+            <img
+              src="/yadi.jpg"
+              class="rounded-circle img-fluid profile-img"
+              alt="Profile Photo"
+            />
+          </div>
+          <div class="col-md-8 mt-3">
+            <h1 class="display-4">{{ name }}</h1>
+            <p class="lead">{{ tagline }}</p>
+            <p>{{ about }}</p>
 
-          <div class="skills-container mt-4">
-            <div
-              v-for="(skill, index) in skills"
-              :key="index"
-              :class="['skill-box', index % 2 === 0 ? 'dark' : 'light']"
-            >
-              {{ skill }}
+            <div class="skills-container mt-4">
+              <div
+                v-for="(skill, index) in skills"
+                :key="index"
+                :class="['skill-box', index % 2 === 0 ? 'dark' : 'light']"
+              >
+                {{ skill }}
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 text-center"></div>
-          <div class="col-md-8">
-            <echart />
+          <div class="row">
+            <div class="col-md-4 text-center"></div>
+            <div class="col-md-8">
+              <echart />
+            </div>
           </div>
         </div>
       </div>
@@ -80,5 +82,18 @@ const skills = ref([
 .skill-box.light {
   background-color: #e8e6e3; /* warna abu-abu muda */
   color: #000;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .profile-img {
+    width: 250px;
+    height: 250px;
+  }
 }
 </style>
